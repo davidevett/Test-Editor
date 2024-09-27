@@ -42,3 +42,12 @@ registerRoute(
     ],
   })
 );
+
+registerRoute(
+  ({ request }) => request.method !== 'GET',
+  new offlineFallback({
+    offlineURL: '/offline.html',
+    fallbackURL: '/',
+  })
+);
+
